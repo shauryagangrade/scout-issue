@@ -101,12 +101,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Check markdown formatting
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install markdownlint-cli
+        run: npm install -g markdownlint-cli
+
+      - name: Run markdownlint
         run: |
-          # Install markdownlint if available
-          if command -v npm &> /dev/null; then
-            npm install -g markdownlint-cli
-            markdownlint '**/*.md' --ignore node_modules
-          else
-            echo "npm not available, skipping markdownlint"
-          fi
+          markdownlint '**/*.md' --config .markdownlint.json --ignore node_modules --ignore dist
