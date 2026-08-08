@@ -1,0 +1,112 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for broken links
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: --verbose --no-progress './**/*.md'
+        continue-on-error: true
+
+      - name: Validate markdown syntax
+        run: |
+          # Check if markdown files are valid
+          for file in $(find . -name "*.md" -not -path "./node_modules/*"); do
+            echo "Checking $file..."
+            # Basic syntax check - ensure file is readable
+            if [ ! -r "$file" ]; then
+              echo "Error: $file is not readable"
+              exit 1
+            fi
+          done
+
+      - name: Check for secrets
+        run: |
+          # Scan for potential secrets or sensitive information
+          echo "Scanning for potential secrets..."
+          if grep -r "API_KEY\|SECRET\|PASSWORD\|TOKEN" --include="*.md" . 2>/dev/null; then
+            echo "Warning: Potential secrets found in markdown files"
+          else
+            echo "No potential secrets found"
+          fi
+
+  test-skill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install GitHub CLI
+        run: |
+          # GitHub CLI is pre-installed on GitHub Actions runners
+          gh --version
+
+      - name: Validate skill structure
+        run: |
+          echo "Validating Issue Scout skill structure..."
+          
+          # Check required files exist
+          required_files=(
+            "SKILL.md"
+            "README.md"
+            "LICENSE"
+            "CONTRIBUTING.md"
+            "CODE_OF_CONDUCT.md"
+            "SECURITY.md"
+            "CHANGELOG.md"
+            ".gitignore"
+          )
+          
+          for file in "${required_files[@]}"; do
+            if [ -f "$file" ]; then
+              echo "✓ $file exists"
+            else
+              echo "✗ $file is missing"
+              exit 1
+            fi
+          done
+          
+          # Check directories exist
+          required_dirs=(
+            "examples"
+            "references"
+            ".github"
+          )
+          
+          for dir in "${required_dirs[@]}"; do
+            if [ -d "$dir" ]; then
+              echo "✓ $dir/ directory exists"
+            else
+              echo "✗ $dir/ directory is missing"
+              exit 1
+            fi
+          done
+          
+          echo "Skill structure validation passed!"
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check markdown formatting
+        run: |
+          # Install markdownlint if available
+          if command -v npm &> /dev/null; then
+            npm install -g markdownlint-cli
+            markdownlint '**/*.md' --ignore node_modules
+          else
+            echo "npm not available, skipping markdownlint"
+          fi

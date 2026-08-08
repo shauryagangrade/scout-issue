@@ -1,0 +1,175 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+*.pyc
+__pycache__/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Testing
+coverage/
+.nyc_output/
+test-results/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Cache files
+.cache/
+*.cache
+
+# Optional npm dependencies
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Optional IDE configurations
+*.code-workspace
+.vscode/settings.json
+
+# Documentation builds (if any)
+docs/_build/
+site/
+
+# Media files (if generated)
+*.gif
+*.mp4
+*.webm
+
+# Python specific (if any Python scripts are added)
+*.py
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Rust specific (if any Rust code is added)
+target/
+Cargo.lock
+
+# Go specific (if any Go code is added)
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Java specific (if any Java code is added)
+*.class
+*.jar
+*.war
+*.ear
+
+# Ruby specific (if any Ruby code is added)
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+# Swift specific (if any Swift code is added)
+.build/
+Packages/
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
+
+# Kotlin specific (if any Kotlin code is added)
+*.class
+*.jar
+*.war
+*.ear
+
+# C/C++ specific (if any C/C++ code is added)
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+
+# PHP specific (if any PHP code is added)
+/vendor/
+composer.phar
+
+# Shell script specific
+*.sh.bak
+
+# Documentation specific
+docs/
+*.md.bak
+
+# Backup files
+*.backup
+*.old
+*.orig
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Archive files
+*.tar.gz
+*.zip
+*.rar
+*.7z
+
+# Binary files
+*.bin
+*.exe
+*.dll
+*.so
+*.dylib
