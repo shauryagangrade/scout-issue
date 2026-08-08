@@ -194,11 +194,11 @@ find . -name "*test*" -type f | head -5
 1. **User Fit** - Matches user's skills and preferences
 2. **Technical Fit** - Matches repository's tech stack
 3. **Scope Fit** - Matches user's time constraints
-4. **Difficulty Fit** - Matches user's skill level
-5. **Issue Quality** - Well-defined problem
-6. **Activity** - Active maintenance
-7. **Contribution Feasibility** - Realistic to complete
-8. **Evidence Quality** - Strong supporting evidence
+3. **Difficulty Fit** - Matches user's skill level
+4. **Issue Quality** - Well-defined problem
+5. **Activity** - Active maintenance
+6. **Contribution Feasibility** - Realistic to complete
+7. **Evidence Quality** - Strong supporting evidence
 
 **Calculate weighted score:**
 - Default weights: User Fit 20%, Technical 15%, Scope 20%, Difficulty 15%, Quality 10%, Activity 5%, Feasibility 10%, Evidence 5%

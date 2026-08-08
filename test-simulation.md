@@ -483,7 +483,7 @@ Ready to start? Say: "Start working on this"
 User: /scout rust compiler core
 ```
 
-### AI Responds (Initial)
+### AI Responds
 
 ```
 AI: 🔍 ISSUE SCOUT
@@ -512,7 +512,7 @@ What's your experience level with this repository?
 User: First-time contributor, Rust, Weekend project, Bug fix, Beginner-friendly
 ```
 
-### AI Responds (With Results)
+### AI Responds
 
 ```
 AI: ✅ Got it! Let me find issues that match your criteria:
