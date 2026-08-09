@@ -17,7 +17,6 @@ jobs:
         uses: lycheeverse/lychee-action@v1
         with:
           args: --verbose --no-progress './**/*.md'
-        continue-on-error: true
 
       - name: Validate markdown syntax
         run: |
