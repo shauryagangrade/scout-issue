@@ -34,7 +34,7 @@ We welcome suggestions for new features or improvements. Please create an issue 
 ### File Structure
 
 ```
-issue-scout/
+scout-issue/
 ├── SKILL.md              # Main skill instructions
 ├── README.md             # Project documentation
 ├── LICENSE               # Apache 2.0 license

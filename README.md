@@ -38,8 +38,9 @@ Phase 4: Format and display
 
 1. Clone or copy this skill into your AI CLI's `skills/` directory:
    ```bash
+   git clone https://github.com/shauryagangrade/scout-issue.git
    # Example for a CLI that uses ~/.config/ai-cli/skills/
-   cp -r issue-scout ~/.config/ai-cli/skills/
+   cp -r scout-issue ~/.config/ai-cli/skills/
    ```
 
 2. The skill is now available. No additional setup required.
