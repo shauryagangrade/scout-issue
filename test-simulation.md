@@ -149,7 +149,7 @@ Found 5 strong candidates from 23 initial matches.
 ```
 AI: 🔍 ISSUE SCOUT RESULTS
 
-Found 5 strong candidates from 342 open issues.
+Found 5 strong candidates from 23 issues matching the initial criteria.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -529,7 +529,7 @@ AI: ✅ Got it! Let me find issues that match your criteria:
 
 ⚠️ ISSUE SCOUT RESULTS
 
-Searched 156 open issues. Found 0 strong candidates.
+Searched 47 open issues. Found 0 strong candidates.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -554,7 +554,7 @@ Reasons:
 • Active PR already exists
 • Design discussion still ongoing
 
-Issue #1301 — Rejected
+Issue #1362 — Rejected
 Reasons:
 • Requires understanding of LLVM backend
 • No reproduction case provided

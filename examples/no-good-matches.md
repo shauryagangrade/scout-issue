@@ -10,7 +10,7 @@ Find me a beginner-friendly Rust issue in the compiler subsystem.
 ```
 ISSUE SCOUT
 
-Searched 156 open issues. Found 0 strong candidates.
+Searched 47 open issues. Found 0 strong candidates.
 
 Analysis:
 - Rust issues in compiler subsystem: 23
@@ -30,7 +30,7 @@ Reasons:
 - Active PR already exists
 - Design discussion still ongoing
 
-Issue #1301 — Rejected
+Issue #1362 — Rejected
 Reasons:
 - Requires understanding of LLVM backend
 - No reproduction case provided

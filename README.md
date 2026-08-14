@@ -123,7 +123,7 @@ User: First-time contributor, JavaScript/TypeScript, Weekend project, Bug fix
 ```
 AI: 🔍 ISSUE SCOUT RESULTS
 
-Found 5 strong candidates from 342 open issues.
+Found 5 strong candidates from 23 issues matching the initial criteria.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -243,7 +243,7 @@ Works across AI coding CLIs. No dependencies on specific AI APIs or proprietary 
 ```
 🔍 ISSUE SCOUT RESULTS
 
-Found 3 strong candidates from 342 open issues.
+Found 3 strong candidates from 23 issues matching the initial criteria.
 
 1. #1247 — Fix button hover state not working in Safari
    📊 Match: 91/100
