@@ -28,9 +28,15 @@ Phase 1: Ask user questions
 Phase 2: Find candidate issues
     ↓
 Phase 3: Analyze and rank
-    ↓
-Phase 4: Format and display
+    ↓    Phase 4: Format and display
 ```
+
+In Phase 2 the skill reads the repo's true open-issue count (`gh api ...
+--jq '.open_issues_count'`) and lists candidates from the open issues, one
+page (up to 100) at a time. In the results, "from N open issues" is that
+repo-wide count, while the pool actually searched may be a capped subset of
+the newest issues — in a repo with more than 100 open issues, use `--page`
+to search further pages.
 
 ## Installation
 

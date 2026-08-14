@@ -141,8 +141,18 @@ ls -la
 
 ### Step 2: List Candidate Issues
 ```bash
-# List all open issues
+# Repo-wide open issue count — this is the "from M open issues" figure in the
+# results summary. It reflects the whole repo, not just the pages searched.
+gh api "repos/$(gh repo view --json nameWithOwner --jq .nameWithOwner)" --jq '.open_issues_count'
+
+# List open issues (the search pool). One page holds up to 100 issues, so in
+# a repo with more than 100 open issues this covers only the newest 100.
 gh issue list --state open --limit 100
+
+# To search beyond the first page, pass --page explicitly (e.g. --page 2).
+# The "from M open issues" figure stays the repo-wide count from above even
+# when the pool searched is a capped subset.
+gh issue list --state open --limit 100 --page 2
 
 # Filter by language if specified
 gh issue list --state open --label "rust" --limit 50
@@ -247,6 +257,11 @@ Found [N] strong candidates from [M] open issues.
 💡 Want me to investigate any of these issues in detail?
    Say: "Investigate #[NUMBER]"
 ```
+
+> `[M]` is the repo-wide open-issue count fetched in Phase 2 (Step 2) via
+> `gh api ... --jq '.open_issues_count'`. The candidate pool actually searched
+> is capped at 100 issues per page, so `[M]` may be larger than the pool when
+> a repo has more than 100 open issues; use `--page` to enumerate more.
 
 **Fallback format (if Unicode not supported):**
 ```
