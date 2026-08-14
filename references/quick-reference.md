@@ -60,7 +60,7 @@ Display to User
    - Any suitable issue
 
 5. **Difficulty Preference**
-   - Beginner-friendly (good first issue)
+   - Beginner-friendly (good first issue) — label is a hunting hint only; verify difficulty from the issue body and code
    - Intermediate
    - Advanced
    - Any difficulty

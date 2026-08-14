@@ -7,7 +7,7 @@
 # All open issues
 gh issue list --state open --limit 100
 
-# Filter by label
+# Filter by label (hint only — verify difficulty in Phase 3, never trust labels alone)
 gh issue list --state open --label "bug" --limit 50
 gh issue list --state open --label "good first issue" --limit 50
 gh issue list --state open --label "help-wanted" --limit 50
