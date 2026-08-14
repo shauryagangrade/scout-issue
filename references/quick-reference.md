@@ -10,6 +10,9 @@
 | `Investigate #NNN` | Deep dive into specific issue |
 | `Plan this issue` | Get implementation plan |
 | `How should I approach this?` | Get approach advice |
+| `/cancel` | Abort the current pipeline and return to normal chat mode |
+| `/scout` (again) | Restart the pipeline from Phase 1, discarding previous progress |
+| `Start working on this` | Begin the planned implementation |
 
 ## Pipeline Flow
 
