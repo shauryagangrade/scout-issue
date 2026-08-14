@@ -58,7 +58,8 @@ temp/
 *.cache
 
 # Optional npm dependencies
-package-lock.json
+# package-lock.json is committed: it pins the markdownlint-cli version the
+# lint job installs with `npm ci` (see issue #11).
 yarn.lock
 pnpm-lock.yaml
 

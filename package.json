@@ -1,0 +1,9 @@
+{
+  "name": "issue-scout",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Development dependencies for the Issue Scout skill repo CI",
+  "devDependencies": {
+    "markdownlint-cli": "0.49.1"
+  }
+}
