@@ -120,29 +120,88 @@ How strong is the evidence supporting this recommendation?
 
 ### Weight Adaptation
 
+The three named scenarios re-weight a subset of dimensions and reduce the
+remaining dimensions **proportionally** so the weights still sum to 100%.
+
+How "proportionally" is computed: let S be the sum of the weights assigned to
+the promoted dimensions. The remaining weight is `100 - S`, shared by the
+unpromoted dimensions in proportion to their default weights:
+
+```
+reduced_weight(d) = default_weight(d) × (100 - S) / sum_of_defaults_of_unpromoted
+```
+
+The tables below use the result rounded to whole percentage points (the last
+dimension absorbs any rounding remainder so every row sums to exactly 100%).
+
 **For "weekend project":**
-- Scope Fit: 30%
-- Difficulty Fit: 25%
-- Contribution Feasibility: 20%
-- Others: reduced proportionally
+
+| Dimension | Default | Weekend |
+|---|---|---|
+| Scope Fit | 20% | 30% |
+| Difficulty Fit | 15% | 25% |
+| Contribution Feasibility | 10% | 20% |
+| User Fit | 20% | 9% |
+| Technical Fit | 15% | 7% |
+| Issue Quality | 10% | 5% |
+| Activity | 5% | 2% |
+| Evidence Quality | 5% | 2% |
+
+(Promoted sum 75%, remaining 25% reduced proportionally; totals 100%.)
 
 **For "portfolio contribution":**
-- Technical Fit: 25%
-- Issue Quality: 20%
-- Contribution Feasibility: 20%
-- Others: reduced proportionally
+
+| Dimension | Default | Portfolio |
+|---|---|---|
+| Technical Fit | 15% | 25% |
+| Issue Quality | 10% | 20% |
+| Contribution Feasibility | 10% | 20% |
+| User Fit | 20% | 10% |
+| Scope Fit | 20% | 10% |
+| Difficulty Fit | 15% | 8% |
+| Activity | 5% | 4% |
+| Evidence Quality | 5% | 3% |
+
+(Promoted sum 65%, remaining 35% reduced proportionally; totals 100%.)
 
 **For "first contribution":**
-- Difficulty Fit: 30%
-- Contribution Feasibility: 25%
-- Issue Quality: 20%
-- Others: reduced proportionally
+
+| Dimension | Default | First |
+|---|---|---|
+| Difficulty Fit | 15% | 30% |
+| Contribution Feasibility | 10% | 25% |
+| Issue Quality | 10% | 20% |
+| User Fit | 20% | 8% |
+| Technical Fit | 15% | 6% |
+| Scope Fit | 20% | 8% |
+| Activity | 5% | 2% |
+| Evidence Quality | 5% | 1% |
+
+(Promoted sum 75%, remaining 25% reduced proportionally; totals 100%.)
 
 ## Calculation
 
 Final Score = Σ (Dimension Score × Weight)
 
 Where each dimension score is 0-100 and weights sum to 1.0.
+
+### Worked example ("weekend project")
+
+Scores: User Fit 60, Technical Fit 80, Scope Fit 90, Difficulty Fit 70,
+Issue Quality 85, Activity 40, Contribution Feasibility 75, Evidence Quality 50.
+
+| Dimension | Score | Weight (weekend) | Contribution |
+|---|---|---|---|
+| User Fit | 60 | 9% | 5.40 |
+| Technical Fit | 80 | 7% | 5.60 |
+| Scope Fit | 90 | 30% | 27.00 |
+| Difficulty Fit | 70 | 25% | 17.50 |
+| Issue Quality | 85 | 5% | 4.25 |
+| Activity | 40 | 2% | 0.80 |
+| Contribution Feasibility | 75 | 20% | 15.00 |
+| Evidence Quality | 50 | 2% | 1.00 |
+
+Final Score = 5.40 + 5.60 + 27.00 + 17.50 + 4.25 + 0.80 + 15.00 + 1.00 = **76.55**
 
 ## Confidence Levels
 
