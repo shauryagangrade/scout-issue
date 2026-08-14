@@ -179,8 +179,8 @@ gh issue view ISSUE_NUM
 # Check comments
 gh issue view ISSUE_NUM --comments
 
-# Check for linked PRs
-gh issue view ISSUE_NUM --json timelineItems
+# Check for linked PRs (PRs that reference this issue)
+gh api "repos/$(gh repo view --json nameWithOwner --jq .nameWithOwner)/issues/ISSUE_NUM/timeline" --paginate --jq '[.[] | select(.event == "cross-referenced" and .source.issue.pull_request != null) | .source.issue.number]'
 
 # Find related code
 rg "relevant_function" src/
