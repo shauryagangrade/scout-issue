@@ -284,6 +284,17 @@ Found 3 strong candidates from 156 open issues.
 - Cannot guarantee issue acceptance
 - Limited by GitHub API rate limits when investigating many issues
 
+## Roadmap
+
+Planned work:
+
+- [ ] Integration with more AI CLI platforms
+- [ ] Caching for faster repeated searches
+- [ ] Custom scoring weights
+- [ ] Export results to markdown/JSON
+- [ ] Batch investigation mode
+- [ ] Integration with project management tools
+
 ## Contributing
 
 This is a skill designed to be portable and reusable. Contributions should maintain:

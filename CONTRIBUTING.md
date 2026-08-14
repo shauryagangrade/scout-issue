@@ -42,6 +42,9 @@ scout-issue/
 ├── CODE_OF_CONDUCT.md    # Community standards
 ├── SECURITY.md           # Security policy
 ├── CHANGELOG.md          # Release history
+├── .gitignore            # Ignored files and artifacts
+├── .markdownlint.json    # Markdown lint configuration
+├── test-simulation.md    # End-to-end test scenarios
 ├── examples/             # Usage examples
 ├── references/           # Supplementary documentation
 └── .github/              # GitHub templates and workflows
