@@ -32,10 +32,10 @@ gh issue view 1234
 gh issue view 1234 --comments
 
 # JSON format for parsing
-gh issue view 1234 --json title,body,labels,assignees,linkedPRs
+gh issue view 1234 --json title,body,labels,assignees
 
-# Check for linked PRs
-gh issue view 1234 --json timelineItems
+# Check for linked PRs (PRs that reference this issue)
+gh api "repos/$(gh repo view --json nameWithOwner --jq .nameWithOwner)/issues/1234/timeline" --paginate --jq '[.[] | select(.event == "cross-referenced" and .source.issue.pull_request != null) | .source.issue.number]'
 ```
 
 ### List PRs
@@ -148,11 +148,10 @@ git log --oneline -5 -- path/to/file
 
 ### Check Issue Activity
 ```bash
-# Get issue timeline
-gh issue view 1234 --json timelineItems
-
-# Check for linked PRs
-gh pr list --state all --search "1234 in:title"
+# Get issue timeline (linked PRs referencing this issue)
+gh api "repos/$(gh repo view --json nameWithOwner --jq .nameWithOwner)/issues/1234/timeline" --paginate --jq '[.[] | select(.event == "cross-referenced" and .source.issue.pull_request != null) | .source.issue.number]'
+# Note: `gh issue view --json timelineItems/linkedPRs` is not supported; the CLI
+# exposes a fixed set of REST fields, so linked-PR detection uses the timeline API.
 
 # Check maintainer activity
 gh issue view 1234 --json comments | jq '.comments[].author.login'

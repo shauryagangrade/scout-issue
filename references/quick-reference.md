@@ -95,8 +95,8 @@ gh issue list --label "bug" --state open
 # View specific issue
 gh issue view 1234
 
-# Check for linked PRs
-gh issue view 1234 --json timelineItems
+# Check for linked PRs (PRs that reference this issue)
+gh api "repos/$(gh repo view --json nameWithOwner --jq .nameWithOwner)/issues/1234/timeline" --paginate --jq '[.[] | select(.event == "cross-referenced" and .source.issue.pull_request != null) | .source.issue.number]'
 
 # List PRs
 gh pr list --state open
