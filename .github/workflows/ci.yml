@@ -110,10 +110,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: npm
 
-      - name: Install markdownlint-cli
-        run: npm install -g markdownlint-cli
+      - name: Install dependencies
+        run: npm ci
 
       - name: Run markdownlint
         run: |
-          markdownlint '**/*.md' --config .markdownlint.json --ignore node_modules --ignore dist
+          npx markdownlint '**/*.md' --config .markdownlint.json --ignore node_modules --ignore dist
