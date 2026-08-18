@@ -1,3 +1,8 @@
+---
+name: scout
+description: "Use when a developer wants to find the best GitHub issues to contribute to in a repository. Triggers on /scout. Asks about experience level, technical skills, time, and contribution type, then searches GitHub issues, scores them, and presents ranked recommendations with match analysis."
+---
+
 # Issue Scout - /scout Command
 
 When the user types `/scout`, activate this command pipeline.
