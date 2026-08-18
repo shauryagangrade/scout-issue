@@ -1,5 +1,7 @@
 # Example: No Good Matches Found
 
+*Note: Issue counts and numbers below are illustrative examples.*
+
 ## User Request
 ```
 Find me a beginner-friendly Rust issue in the compiler subsystem.

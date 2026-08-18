@@ -1,5 +1,7 @@
 # Example: Finding a First Contribution
 
+*Note: Issue counts and numbers below are illustrative examples.*
+
 ## User Request
 ```
 Find me a good first contribution in this repository.
