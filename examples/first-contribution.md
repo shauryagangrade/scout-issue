@@ -10,7 +10,7 @@ Find me a good first contribution in this repository.
 ```
 ISSUE SCOUT
 
-Found 3 strong candidates from 342 open issues.
+Found 3 strong candidates from 23 issues matching the initial criteria.
 
 1. #1247 — Fix button hover state not working in Safari
    Match: 91/100
