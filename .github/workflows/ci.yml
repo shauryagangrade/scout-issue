@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -30,15 +33,18 @@ jobs:
             fi
           done
 
-      - name: Check for secrets
+      - name: Detect secrets with gitleaks
         run: |
-          # Scan for potential secrets or sensitive information
-          echo "Scanning for potential secrets..."
-          if grep -r "API_KEY\|SECRET\|PASSWORD\|TOKEN" --include="*.md" . 2>/dev/null; then
-            echo "Warning: Potential secrets found in markdown files"
-          else
-            echo "No potential secrets found"
-          fi
+          # Purpose-built secret scanner; fails the job on any finding.
+          GITLEAKS_VERSION="8.30.1"
+          case "$(uname -s)-$(uname -m)" in
+            Linux-x86_64)  ASSET="gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" ;;
+            Linux-aarch64) ASSET="gitleaks_${GITLEAKS_VERSION}_linux_arm64.tar.gz" ;;
+            *) echo "Unsupported platform for gitleaks" >&2; exit 1 ;;
+          esac
+          curl -sSfL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/${ASSET}" -o /tmp/gitleaks.tar.gz
+          tar -xzf /tmp/gitleaks.tar.gz -C /usr/local/bin gitleaks
+          gitleaks detect --no-git --source . --redact --verbose
 
   test-skill:
     runs-on: ubuntu-latest
