@@ -160,7 +160,7 @@ gh issue list --state open --label "rust" --limit 50
 # Filter by type if specified
 gh issue list --state open --label "bug" --limit 50
 
-# Filter for beginner-friendly if specified
+# Filter for beginner-friendly if specified (hint only — verify in Phase 3)
 gh issue list --state open --label "good first issue" --limit 50
 ```
 
@@ -176,6 +176,10 @@ Remove issues that:
 ---
 
 ## Phase 3: Issue Analysis & Ranking
+
+> The `good first issue` label is a candidate-hunting hint only. Never assume
+> beginner-friendly solely from the label: inspect the issue body, difficulty,
+> and surrounding code before scoring Difficulty Fit.
 
 **Goal:** Analyze candidates and rank by suitability.
 
@@ -525,7 +529,7 @@ If GitHub API rate limit is hit:
 ## Important Rules
 
 1. Never rank by title match alone
-2. Never assume beginner-friendly from labels
+2. Never assume beginner-friendly solely from labels; verify difficulty from issue content and code
 3. Never assume active from open status
 4. Never assume abandoned from age
 5. Always check linked PRs
