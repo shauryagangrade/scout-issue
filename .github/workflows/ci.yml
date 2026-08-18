@@ -38,11 +38,18 @@ jobs:
           # Purpose-built secret scanner; fails the job on any finding.
           GITLEAKS_VERSION="8.30.1"
           case "$(uname -s)-$(uname -m)" in
-            Linux-x86_64)  ASSET="gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" ;;
-            Linux-aarch64) ASSET="gitleaks_${GITLEAKS_VERSION}_linux_arm64.tar.gz" ;;
+            Linux-x86_64)
+              ASSET="gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+              EXPECTED_SHA="551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb"
+              ;;
+            Linux-aarch64)
+              ASSET="gitleaks_${GITLEAKS_VERSION}_linux_arm64.tar.gz"
+              EXPECTED_SHA="e4a487ee7ccd7d3a7f7ec08657610aa3606637dab924210b3aee62570fb4b080"
+              ;;
             *) echo "Unsupported platform for gitleaks" >&2; exit 1 ;;
           esac
           curl -sSfL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/${ASSET}" -o /tmp/gitleaks.tar.gz
+          echo "${EXPECTED_SHA}  /tmp/gitleaks.tar.gz" | sha256sum -c -
           tar -xzf /tmp/gitleaks.tar.gz -C /usr/local/bin gitleaks
           gitleaks detect --no-git --source . --redact --verbose
 
