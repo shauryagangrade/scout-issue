@@ -1,8 +1,35 @@
 {
-  "name": "issue-scout",
+  "name": "scout-issue",
   "version": "1.0.0",
-  "private": true,
-  "description": "Development dependencies for the Issue Scout skill repo CI",
+  "description": "AI coding skill that helps developers find the best GitHub issues to contribute to",
+  "license": "MIT",
+  "author": "Shaurya Gangrade",
+  "bin": {
+    "scout": "bin/scout.js"
+  },
+  "files": [
+    "SKILL.md",
+    "bin"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "keywords": [
+    "scout",
+    "github",
+    "issues",
+    "contributions",
+    "claude",
+    "skill",
+    "ai"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shauryagangrade/scout-issue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shauryagangrade/scout-issue/issues"
+  },
   "devDependencies": {
     "markdownlint-cli": "0.49.1"
   }
