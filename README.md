@@ -1,5 +1,7 @@
 # Issue Scout
 
+[![npm](https://img.shields.io/npm/v/scout-issue)](https://www.npmjs.com/package/scout-issue)
+
 An AI coding skill that helps developers find the best GitHub issues to contribute to, triggered by the `/scout` command.
 
 ## Problem
