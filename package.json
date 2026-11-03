@@ -31,6 +31,6 @@
     "url": "https://github.com/shauryagangrade/scout-issue/issues"
   },
   "devDependencies": {
-    "markdownlint-cli": "0.49.1"
+    "markdownlint-cli": "0.50.0"
   }
 }
